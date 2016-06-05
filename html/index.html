@@ -1,0 +1,10 @@
+<html>
+<body>
+    <h1>Latest pic</h1>
+    <img src="{{ latest }}"></img>
+    <h2>Other pics</h2>
+    {% for item in files -%}
+    <a href="images/{{ item }}">{{ item  }}</a><br/>
+    {%- endfor %}
+</body>
+</html>
