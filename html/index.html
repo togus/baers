@@ -1,10 +1,79 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+              <meta name="viewport" content="width=device-width, initial-scale=1">
+                  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+                      <title>Pictures of baers - baers.se</title>
+
+    <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"> -->
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+            <!--[if lt IE 9]>
+                  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+                        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+                            <![endif]-->
+</head>
 <body>
-    <h1>Latest pic</h1>
-    <img src="{{ latest }}"></img>
-    <h2>Other pics</h2>
-    {% for item in files -%}
-    <a href="images/{{ item }}">{{ item  }}</a><br/>
-    {%- endfor %}
-</body>
-</html>
+    <div class="container">
+        <div class="header clearfix">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a href="#">Home</a></li>
+                    <li role="presentation"><a href="#">About</a></li></ul>                  </nav>
+                                                                                         <h3 class="text-muted">baers.se</h3>
+        </div>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">                                                                                                     <!-- Indicators -->
+             <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                {% set counter = 1 -%}
+                {% for item in files -%}
+                <li data-target="#myCarousel" data-slide-to="{{ counter }}"></li>
+                {% set counter = counter + 1 %}
+                {%- endfor %}
+             </ol>
+
+  <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+              <img style="width: 50%; height: 50%; overflow: hidden;" class="img-responsive center-block" src="{{ latest }}" alt="Chania">
+                  </div>
+
+{% for item in files -%}
+    <div class="item">
+          <img style="width: 50%; height: 50%; overflow: hidden"
+          class="img-responsive center-block" src="images/{{ item }}" alt="Flower">
+              </div>
+              {%- endfor %}
+                </div>
+
+  <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+              </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                          </a>
+                          </div>
+
+      <div class="row marketing">
+              <div class="col-lg-12">
+                        <h4>Is it time for baers?</h4>
+                                  <p>Yes, yes of course it is.</p>
+                                          </div>
+
+ </div> <!-- container -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      </body>
+      </html>
+

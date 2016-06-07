@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from os import listdir
 from os.path import isfile, join, getctime
 
@@ -13,5 +14,5 @@ newest = max(glob.iglob('images/*.*'), key=getctime)
 
 #print allimages
 #print newest
-
+allimages.remove(newest.rsplit('/', 1)[-1])
 print template.render(latest=newest, files=allimages)
